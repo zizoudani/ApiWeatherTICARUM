@@ -1,0 +1,13 @@
+CREATE TABLE sensores (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    tipo VARCHAR(255) NOT NULL,
+    magnitud VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE mediciones (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    fecha TIMESTAMP NOT NULL,
+    valor DOUBLE NOT NULL,
+    sensor_id BIGINT NOT NULL,
+    FOREIGN KEY (sensor_id) REFERENCES sensores(id)
+);
